@@ -29,11 +29,17 @@ function App() {
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
+  const toggleReminder = (id) => {
+    setTasks(
+      tasks.map((t) => (t.id === id ? { ...t, reminder: !t.reminder } : t))
+    );
+  };
+
   return (
     <div>
       <Header />
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} onDelete={deleteTask} />
+        <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
         <div className="container d-flex justify-content-center mt-4">
           <h3>"Ups! No tasks to show..."</h3>
