@@ -2,9 +2,11 @@ import Button from "./Button";
 
 const Header = ({ title, onAdd, showAddTask }) => {
   return (
-    <div className="navbar bg-dark mb-3" data-bs-theme="dark">
+    <div className="navbar bg-dark navbar-dark mb-5">
       <div className="container">
-        <h1 className="navbar-brand">{title}</h1>
+        <a href="#" className="navbar-brand fw-bold">
+          {title}
+        </a>
 
         <Button
           text={`${showAddTask ? "CLOSE" : "ADD TASK"}`}
