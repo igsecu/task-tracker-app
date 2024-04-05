@@ -25,6 +25,7 @@ function App() {
       reminder: false,
     },
   ]);
+  const [showAddTask, setShowAddTask] = useState(false);
 
   const addTask = (task) => {
     const id = Math.floor(Math.random() * 1000);
@@ -43,8 +44,11 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAddTask={showAddTask}
+      />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
