@@ -1,8 +1,10 @@
-function Tasks({ tasks }) {
+import Task from "./Task";
+
+function Tasks({ tasks, onDelete }) {
   return (
-    <div className="container">
+    <div className="container d-flex flex-column align-items-center">
       {tasks.map((task) => (
-        <h3 key={task.id}>{task.text}</h3>
+        <Task key={task.id} task={task} onDelete={onDelete} />
       ))}
     </div>
   );
